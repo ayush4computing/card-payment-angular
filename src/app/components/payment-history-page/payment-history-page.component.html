@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row payment-history-title text-center my-5">
+        <p>Payment History</p>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th >Name</th>
+                <th >Amount</th>
+                <th >Timestamp</th>
+                <th >Card Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of payments">
+                <td>{{p.card.name}}</td>
+                <td>{{p.amount}}</td>
+                <td>{{p.date | date:'medium'}}</td>
+                <td>{{p.card.cardNumber | hideCardNumber}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

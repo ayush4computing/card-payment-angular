@@ -1,0 +1,143 @@
+<div class="container ">
+    <div class="row payment-box">
+        <div class="col ">
+            <div class="row text-center mt-4">
+                <h4>Enter Payment Details</h4>
+            </div>
+            <hr>
+            <div class="row">
+                <form [formGroup]="paymentForm" (ngSubmit)= "onPay()">
+
+                    <!-- Name Input box -->
+                    <div class="row input-box mx-auto form-group">
+                        <input class="form-control" 
+                                type="text" 
+                                placeholder="Enter Name"
+                                formControlName="name" 
+                                [ngClass]="{'is-invalid':paymentForm.controls.name.dirty && paymentForm.controls.name.errors}">
+                                <div *ngIf="paymentForm.controls.name.dirty && paymentForm.controls.name.errors" class="text-danger">
+                                    <div *ngIf="paymentForm.controls.name.dirty && paymentForm.controls.name.errors.required">
+                                        <p>Name is required.</p>
+                                    </div>
+                                    <div *ngIf="paymentForm.controls.name.dirty && paymentForm.controls.name.errors.minlength">
+                                        <p>Name should contain 4 characters.</p>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <!-- Crad number input box -->
+                    <div class="row my-3 input-box mx-auto form-group">
+                        <input class="form-control" 
+                                type="text" 
+                                placeholder="Enter Card Number" 
+                                formControlName="cardNumber">
+                                <div *ngIf="paymentForm.controls.cardNumber.dirty && paymentForm.controls.cardNumber.errors" class="text-danger">
+                                    <div *ngIf="paymentForm.controls.cardNumber.dirty && paymentForm.controls.cardNumber.errors.required">
+                                        <p>Card Number is required.</p>
+                                    </div>
+                                    <div *ngIf="paymentForm.controls.cardNumber.dirty && paymentForm.controls.cardNumber.errors.minlength">
+                                        <p>Card Number should contain 16 digits only.</p>
+                                    </div>
+                                    <div *ngIf="paymentForm.controls.cardNumber.dirty && paymentForm.controls.cardNumber.errors.pattern">
+                                        <p>Card Number should be number only.</p>
+                                    </div>
+                                </div>
+                    </div>
+
+                    
+                    <div class="row my-3 input-box mx-auto form-group">
+                        <!-- Cvv input box -->
+                        <div class="col" style="padding-left: 0px !important;">
+                            <input class="form-control" 
+                                    type="password" 
+                                    placeholder="Enter cvv" 
+                                    formControlName="cvv">
+                                    <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors" class="text-danger">
+                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.required">
+                                            <p>cvv is required.</p>
+                                        </div>
+                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.minlength">
+                                            <p>cvv should contain 3 digits only.</p>
+                                        </div>
+                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.maxlength">
+                                            <p>cvv should contain 3 digits only.</p>
+                                        </div>
+                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.pattern">
+                                            <p>cvv should be number only.</p>
+                                        </div>
+                                    </div>
+                        </div>
+                        <!-- Pin input box -->
+                        <div class="col" style="padding: 0px !important;">
+                            <input class="form-control" 
+                                    type="password" 
+                                    placeholder="Enter Pin" 
+                                    formControlName="pin">
+                                    <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors" class="text-danger">
+                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.required">
+                                            <p>pin is required.</p>
+                                        </div>
+                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.minlength">
+                                            <p>pin should contain 6 digits only.</p>
+                                        </div>
+                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.maxlength">
+                                            <p>pin should contain 6 digits only.</p>
+                                        </div>
+                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.pattern">
+                                            <p>pin should be number only.</p>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-3 input-box mx-auto form-group">
+                        <!-- Month select box -->
+                        <div class="col" style="padding-left: 0px !important;">
+                            <select class="form-select" aria-label="Month" formControlName="month">
+                                <option value="">Month</option>
+                                <option *ngFor="let m of monthArr" [ngValue]="m">{{m}}</option>
+                            </select>
+                            <div *ngIf="paymentForm.controls.month.dirty && paymentForm.controls.month.errors" class="text-danger">
+                                <div *ngIf="paymentForm.controls.month.dirty && paymentForm.controls.month.errors.required">
+                                    <p>Month is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Year select box -->
+                        <div class="col" style="padding: 0px !important;">
+                            <select class="form-select" aria-label="Year" formControlName="year">
+                                <option value="">Year</option>
+                                <option *ngFor="let y of yearArr" [ngValue]="y">{{y}}</option>
+                              </select>
+                              <div *ngIf="paymentForm.controls.year.dirty && paymentForm.controls.year.errors" class="text-danger">
+                                <div *ngIf="paymentForm.controls.year.dirty && paymentForm.controls.year.errors.required">
+                                    <p>Year is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-3 input-box mx-auto form-group">
+                        <input class="form-control" 
+                                type="text" 
+                                placeholder="Enter Amount" 
+                                formControlName="amount" >
+                        <div *ngIf="paymentForm.controls.amount.dirty && paymentForm.controls.amount.errors" class="text-danger">
+                            <div *ngIf="paymentForm.controls.amount.dirty && paymentForm.controls.amount.errors.required">
+                                <p>Amount is required.</p>
+                            </div>
+                            <div *ngIf="paymentForm.controls.amount.dirty && paymentForm.controls.amount.errors.pattern">
+                                <p>Enter correct input</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" row form-group ">
+                        <button class="btn btn-primary mx-auto mt-4 mb-4" [disabled]="paymentForm.controls.name.errors || paymentForm.controls.cvv.errors || paymentForm.controls.pin.errors || paymentForm.controls.month.errors || paymentForm.controls.year.errors || paymentForm.controls.amount.errors">Pay</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

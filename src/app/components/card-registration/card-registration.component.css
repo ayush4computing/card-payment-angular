@@ -1,0 +1,21 @@
+.register-title{
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Poppins';
+    width: 100%;
+    color:black;
+}
+
+.form-box{
+    width: 50%;
+    border: 2px solid #12897B;
+    border-radius: 5px; 
+}
+
+.input-box{
+    width: 70%;
+    border-radius: 25px;
+}
+.btn{
+    width: 200px;
+}
