@@ -7,6 +7,8 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { By, BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { HideCardNumberPipe } from './hide-card-number.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -15,10 +17,15 @@ describe('AppComponent', () => {
         ReactiveFormsModule,
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        CommonModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        CardRegistrationComponent,
+        PaymentPageComponent,
+        PaymentHistoryPageComponent,
+        HideCardNumberPipe
       ],
     }).compileComponents();
   });

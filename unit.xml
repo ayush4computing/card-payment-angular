@@ -1,24 +1,13 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome Headless 107.0.5296.0 (Linux x86_64)" package="unit" timestamp="2022-10-08T16:15:45" id="0" hostname="ayush4compu-cardpayment-q7ihowp8a0z" tests="3" errors="0" failures="0" time="0.263">
+<testsuite name="Chrome Headless 107.0.5296.0 (Linux x86_64)" package="unit" timestamp="2022-10-08T16:29:02" id="0" hostname="ayush4compu-cardpayment-q7ihowp8a0z" tests="3" errors="0" failures="0" time="0.178">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/107.0.5296.0 Safari/537.36"/>
   </properties>
-  <testcase name="AppComponent Pay button disabled untill form valid" time="0.194" classname=".AppComponent"/>
+  <testcase name="AppComponent Register button disabled until form valid" time="0.137" classname=".AppComponent"/>
   <testcase name="AppComponent Display payments on History page" time="0.011" classname=".AppComponent"/>
-  <testcase name="AppComponent Register button disabled until form valid" time="0.058" classname=".AppComponent"/>
+  <testcase name="AppComponent Pay button disabled untill form valid" time="0.03" classname=".AppComponent"/>
   <system-out>
-    <![CDATA[Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngForOf' since it isn't a known property of 'option'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngForOf' since it isn't a known property of 'option'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-,Chrome Headless 107.0.5296.0 (Linux x86_64) ERROR: 'NG0303: Can't bind to 'ngIf' since it isn't a known property of 'div'.'
-
+    <![CDATA[
 ]]>
   </system-out>
   <system-err/>
