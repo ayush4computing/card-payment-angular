@@ -8,6 +8,7 @@ import { CardRegistrationComponent } from './components/card-registration/card-r
 import { PaymentPageComponent } from './components/payment-page/payment-page.component';
 import { PaymentHistoryPageComponent } from './components/payment-history-page/payment-history-page.component';
 import { HideCardNumberPipe } from './hide-card-number.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HideCardNumberPipe } from './hide-card-number.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
