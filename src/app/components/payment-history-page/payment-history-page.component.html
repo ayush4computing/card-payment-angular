@@ -15,7 +15,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let p of payments">
+              <tr class="payments-data" *ngFor="let p of payments" >
                 <td class="payment-id">{{p.id}}</td>
                 <td class="card-name">{{p.card.name}}</td>
                 <td class="amount">{{p.amount}}</td>

@@ -72,9 +72,23 @@ describe('AppComponent', () => {
       },
       date: new Date(),
       id: 1234567890123456
-    }
+    },
+    {
+      amount: 123456,
+      card: {
+        cardNumber: '123456',
+        cvv: 123,
+        expiry: '2022/12',
+        id: 1234567890123456,
+        name: 'Jane Doe',
+        pin: 123456
+      },
+      date: new Date(),
+      id: 1234567890123456
+    },
     ];
-    expect(paymentHistoryFixture.debugElement.queryAll(By.css('tr')).length).toEqual(1);
+    paymentHistoryFixture.detectChanges();
+    expect(paymentHistoryFixture.debugElement.queryAll(By.css('.payments-data')).length).toEqual(2);
   });
 
   it('Amount paid should be shown on payment history page', () => {
