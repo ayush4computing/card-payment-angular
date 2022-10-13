@@ -1,12 +1,244 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome Headless 107.0.5296.0 (Linux x86_64)" package="unit" timestamp="2022-10-13T17:38:06" id="0" hostname="ayush4compu-cardpayment-q7ihowp8a0z" tests="4" errors="0" failures="0" time="0.249">
+<testsuite name="Chrome Headless 107.0.5296.0 (Linux x86_64)" package="unit" timestamp="2022-10-13T18:06:43" id="0" hostname="ayush4compu-cardpayment-q7ihowp8a0z" tests="18" errors="0" failures="18" time="0.569">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/107.0.5296.0 Safari/537.36"/>
   </properties>
-  <testcase name="AppComponent Pay button disabled untill form valid" time="0.212" classname=".AppComponent"/>
-  <testcase name="AppComponent Register button disabled until form valid" time="0.018" classname=".AppComponent"/>
-  <testcase name="AppComponent Amount paid should be shown on payment history page" time="0.012" classname=".AppComponent"/>
-  <testcase name="AppComponent Display payments on History page" time="0.007" classname=".AppComponent"/>
+  <testcase name="AppComponent Amount paid should be shown on payment history page" time="0.284" classname=".AppComponent">
+    <failure type="">TypeError: Cannot read properties of null (reading 'textContent')
+    at UserContext.&lt;anonymous&gt; (src/app/app.component.spec.ts:112:24)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <testcase name="AppComponent Pay button disabled untill form valid" time="0.069" classname=".AppComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at selectIndexInternal (node_modules/@angular/core/fesm2015/core.mjs:8416:1)
+</failure>
+  </testcase>
+  <testcase name="AppComponent Register button disabled until form valid" time="0.011" classname=".AppComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at refreshView (node_modules/@angular/core/fesm2015/core.mjs:9510:1)
+</failure>
+  </testcase>
+  <testcase name="AppComponent Display payments on History page" time="0.009" classname=".AppComponent">
+    <failure type="">Error: Expected 1 to equal 2.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/app.component.spec.ts:90:78)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+  </testcase>
+  <testcase name="CardRegistrationComponent onSubmit() should submit the card registration form" time="0.008" classname=".CardRegistrationComponent">
+    <failure type="">TypeError: Cannot read properties of undefined (reading '0')
+    at CardRegistrationComponent.displayCardDetailsMessage (src/app/components/card-registration/card-registration.component.ts:51:65)
+    at CardRegistrationComponent.onSubmit (src/app/components/card-registration/card-registration.component.ts:42:12)
+    at UserContext.&lt;anonymous&gt; (src/app/components/card-registration/card-registration.component.spec.ts:75:30)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <testcase name="CardRegistrationComponent getCardDetails() should get all the card details" time="0.007" classname=".CardRegistrationComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at refreshView (node_modules/@angular/core/fesm2015/core.mjs:9510:1)
+</failure>
+  </testcase>
+  <testcase name="CardRegistrationComponent Name should be of min length 4 in card registration form" time="0.007" classname=".CardRegistrationComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at refreshView (node_modules/@angular/core/fesm2015/core.mjs:9510:1)
+</failure>
+  </testcase>
+  <testcase name="CardRegistrationComponent Pin should not be greater than 6 digit in card registration form" time="0.051" classname=".CardRegistrationComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at refreshView (node_modules/@angular/core/fesm2015/core.mjs:9510:1)
+</failure>
+  </testcase>
+  <testcase name="CardRegistrationComponent Pin should not be less than 6 digit in card registration form" time="0.008" classname=".CardRegistrationComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at refreshView (node_modules/@angular/core/fesm2015/core.mjs:9510:1)
+</failure>
+  </testcase>
+  <testcase name="PaymentHistoryPageComponent Only last 4 digits of the card number should be displayed, rest should be marked with X on payment history page" time="0.005" classname=".PaymentHistoryPageComponent">
+    <failure type="">TypeError: Cannot read properties of null (reading 'textContent')
+    at UserContext.&lt;anonymous&gt; (src/app/components/payment-history-page/payment-history-page.component.spec.ts:53:24)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <testcase name="PaymentHistoryPageComponent Timestamp should be shown in &quot;MMM d, y, h:mm:ss a&quot; format on payment history page" time="0.004" classname=".PaymentHistoryPageComponent">
+    <failure type="">TypeError: Cannot read properties of null (reading 'textContent')
+    at UserContext.&lt;anonymous&gt; (src/app/components/payment-history-page/payment-history-page.component.spec.ts:62:24)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <testcase name="PaymentHistoryPageComponent Card name should be shown on payment history page" time="0.004" classname=".PaymentHistoryPageComponent">
+    <failure type="">TypeError: Cannot read properties of null (reading 'textContent')
+    at UserContext.&lt;anonymous&gt; (src/app/components/payment-history-page/payment-history-page.component.spec.ts:71:24)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <testcase name="PaymentHistoryPageComponent Payment ID should be shown on payment history page" time="0.004" classname=".PaymentHistoryPageComponent">
+    <failure type="">TypeError: Cannot read properties of null (reading 'textContent')
+    at UserContext.&lt;anonymous&gt; (src/app/components/payment-history-page/payment-history-page.component.spec.ts:80:24)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <testcase name="PaymentPageComponent onPay() should submit the payment form" time="0.01" classname=".PaymentPageComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at selectIndexInternal (node_modules/@angular/core/fesm2015/core.mjs:8416:1)
+</failure>
+  </testcase>
+  <testcase name="PaymentPageComponent Card Pin should not be greater than 6 digit in Payment Page Form" time="0.062" classname=".PaymentPageComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at selectIndexInternal (node_modules/@angular/core/fesm2015/core.mjs:8416:1)
+</failure>
+  </testcase>
+  <testcase name="PaymentPageComponent Card CVV should be of 3 digits in Payments Page Form" time="0.009" classname=".PaymentPageComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at selectIndexInternal (node_modules/@angular/core/fesm2015/core.mjs:8416:1)
+</failure>
+  </testcase>
+  <testcase name="PaymentPageComponent Name should be of min length 4 in Payments Page Form" time="0.009" classname=".PaymentPageComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at selectIndexInternal (node_modules/@angular/core/fesm2015/core.mjs:8416:1)
+</failure>
+  </testcase>
+  <testcase name="PaymentPageComponent Card Pin should not be less than 6 digit in Payment Page Form" time="0.008" classname=".PaymentPageComponent">
+    <failure type="">Error: Cannot find control with unspecified name attribute
+    at _throwError (node_modules/@angular/forms/fesm2015/forms.mjs:1785:11)
+    at setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:1574:13)
+    at FormGroupDirective.addControl (node_modules/@angular/forms/fesm2015/forms.mjs:5354:9)
+    at FormControlName._setUpControl (node_modules/@angular/forms/fesm2015/forms.mjs:5916:43)
+    at FormControlName.ngOnChanges (node_modules/@angular/forms/fesm2015/forms.mjs:5861:18)
+    at FormControlName.rememberChangeHistoryAndInvokeOnChangesHook (node_modules/@angular/core/fesm2015/core.mjs:1508:1)
+    at callHook (node_modules/@angular/core/fesm2015/core.mjs:2561:1)
+    at callHooks (node_modules/@angular/core/fesm2015/core.mjs:2520:1)
+    at executeInitAndCheckHooks (node_modules/@angular/core/fesm2015/core.mjs:2471:1)
+    at selectIndexInternal (node_modules/@angular/core/fesm2015/core.mjs:8416:1)
+</failure>
+  </testcase>
   <system-out>
     <![CDATA[
 ]]>

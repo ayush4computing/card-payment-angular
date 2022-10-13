@@ -33,17 +33,17 @@ export class CardRegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
+// write logic to mark form submitted
+
     if (this.registerForm?.invalid) {
       return
     } else {
-      this.cardService.generateCard(this.registerForm?.value.name, this.registerForm?.value.pin)
+      // Write code to generate card
       this.displayCardDetailsMessage();
     }
   }
 
   getCardDetails(){
-    this.cardDetails = this.cardService.getAllCards()
 }
 
   displayCardDetailsMessage() {

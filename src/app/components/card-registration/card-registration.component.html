@@ -10,13 +10,13 @@
                 <input class="form-control input-box mx-auto mt-5" 
                         type="text" 
                         placeholder="Enter Your name"
-                        formControlName="name"
-                        [ngClass]="{'is-invalid':registerForm.controls.name.dirty && registerForm.controls.name.errors}">
-                <div *ngIf="registerForm.controls.name.dirty && registerForm.controls.name.errors" class="text-danger">
+                        formControlName=""
+                        [ngClass]="">
+                <div *ngIf="" class="text-danger">
                     <div *ngIf="registerForm.controls.name.dirty && registerForm.controls.name.errors.required">
                         <p style="margin-left: 15%;">Name is required.</p>
                     </div>
-                    <div *ngIf="registerForm.controls.name.dirty && registerForm.controls.name.errors.minlength">
+                    <div *ngIf="">
                         <p style="margin-left: 15%;">Name should contain 4 characters.</p>
                     </div>
                 </div>
@@ -27,16 +27,16 @@
                 <input class="form-control input-box mx-auto mt-4" 
                         type="password" 
                         placeholder="Enter 6 digit pin"
-                        formControlName="pin"
-                        [ngClass]="{'is-invalid':registerForm.controls.pin.dirty && registerForm.controls.pin.errors}">
-                <div *ngIf="registerForm.controls.pin.dirty && registerForm.controls.pin.errors" class="text-danger">
+                        formControlName=""
+                        [ngClass]="">
+                <div *ngIf="" class="text-danger">
                     <div *ngIf="registerForm.controls.pin.dirty && registerForm.controls.pin.errors.required">
                         <p style="margin-left: 15%;">Pin is required.</p>
                     </div>
-                    <div *ngIf="registerForm.controls.pin.dirty && registerForm.controls.pin.errors.minlength">
+                    <div *ngIf="">
                         <p style="margin-left: 15%;">Pin should contain 6 digits only.</p>
                     </div>
-                    <div *ngIf="registerForm.controls.pin.dirty && registerForm.controls.pin.errors.maxlength">
+                    <div *ngIf="">
                         <p style="margin-left: 15%;">Pin should contain 6 digits only.</p>
                     </div>
                     <div *ngIf="registerForm.controls.pin.dirty && registerForm.controls.pin.errors.pattern">
@@ -46,7 +46,7 @@
             </div>
 
             <div class=" row form-group ">
-                <button class="btn btn-primary mx-auto mt-4 mb-4" [disabled]="registerForm.controls.name.errors || registerForm.controls.pin.errors">Generate</button>
+                <button class="btn btn-primary mx-auto mt-4 mb-4" [disabled]="">Generate</button>
             </div>
         </form>
     </div>

@@ -13,13 +13,13 @@
                         <input class="form-control" 
                                 type="text" 
                                 placeholder="Enter Name"
-                                formControlName="name" 
-                                [ngClass]="{'is-invalid':paymentForm.controls.name.dirty && paymentForm.controls.name.errors}">
-                                <div *ngIf="paymentForm.controls.name.dirty && paymentForm.controls.name.errors" class="text-danger">
-                                    <div *ngIf="paymentForm.controls.name.dirty && paymentForm.controls.name.errors.required">
+                                formControlName="" 
+                                [ngClass]="">
+                                <div *ngIf="" class="text-danger">
+                                    <div *ngIf="">
                                         <p>Name is required.</p>
                                     </div>
-                                    <div *ngIf="paymentForm.controls.name.dirty && paymentForm.controls.name.errors.minlength">
+                                    <div *ngIf="">
                                         <p>Name should contain 4 characters.</p>
                                     </div>
                                 </div>
@@ -51,18 +51,18 @@
                             <input class="form-control" 
                                     type="password" 
                                     placeholder="Enter cvv" 
-                                    formControlName="cvv">
-                                    <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors" class="text-danger">
-                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.required">
+                                    formControlName="">
+                                    <div *ngIf="" class="text-danger">
+                                        <div *ngIf="">
                                             <p>cvv is required.</p>
                                         </div>
-                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.minlength">
+                                        <div *ngIf="">
                                             <p>cvv should contain 3 digits only.</p>
                                         </div>
-                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.maxlength">
+                                        <div *ngIf="">
                                             <p>cvv should contain 3 digits only.</p>
                                         </div>
-                                        <div *ngIf="paymentForm.controls.cvv.dirty && paymentForm.controls.cvv.errors.pattern">
+                                        <div *ngIf="">
                                             <p>cvv should be number only.</p>
                                         </div>
                                     </div>
@@ -72,18 +72,18 @@
                             <input class="form-control" 
                                     type="password" 
                                     placeholder="Enter Pin" 
-                                    formControlName="pin">
-                                    <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors" class="text-danger">
-                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.required">
+                                    formControlName="">
+                                    <div *ngIf="" class="text-danger">
+                                        <div *ngIf="">
                                             <p>pin is required.</p>
                                         </div>
-                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.minlength">
+                                        <div *ngIf="">
                                             <p>pin should contain 6 digits only.</p>
                                         </div>
-                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.maxlength">
+                                        <div *ngIf="">
                                             <p>pin should contain 6 digits only.</p>
                                         </div>
-                                        <div *ngIf="paymentForm.controls.pin.dirty && paymentForm.controls.pin.errors.pattern">
+                                        <div *ngIf="">
                                             <p>pin should be number only.</p>
                                         </div>
                                     </div>

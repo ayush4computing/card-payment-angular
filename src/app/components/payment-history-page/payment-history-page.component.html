@@ -15,14 +15,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let p of payments">
-                <td class="payment-id">{{p.id}}</td>
-                <td class="card-name">{{p.card.name}}</td>
-                <td class="amount">{{p.amount}}</td>
+              <tr *ngFor="">
+                <td class="payment-id"></td>
+                <td class="card-name"></td>
+                <td class="amount"></td>
                 <!-- display date in 'MMM d, y, h:mm:ss a' format -->
-                <td class="transaction-date">{{p.date | date:'medium'}}</td>
+                <td class="transaction-date"></td>
                 <!-- display only last 4 digit of card number and hide rest of digits -->
-                <td class="card-number">{{p.card.cardNumber | hideCardNumber}}</td>
+                <td class="card-number"></td>
               </tr>
             </tbody>
           </table>

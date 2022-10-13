@@ -34,7 +34,8 @@ export class PaymentPageComponent implements OnInit {
   }
 
   onPay(){
-    this.submitted = true
+    // write logic to mark form submission
+    
     if(this.paymentForm?.invalid){
       return
     }else{
