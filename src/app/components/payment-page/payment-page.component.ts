@@ -22,7 +22,7 @@ export class PaymentPageComponent implements OnInit {
   ngOnInit(): void {
     this.paymentForm = this.fb.group({
       name:['',[Validators.required, Validators.minLength(4)]],
-      cardNumber: ['',[Validators.required, Validators.minLength(5),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+      cardNumber: ['',[Validators.required, Validators.minLength(16), Validators.maxLength(16),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       cvv: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(3),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       pin: ['',[Validators.required,Validators.minLength(6),Validators.maxLength(6),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       month: ['',[Validators.required]],
@@ -35,10 +35,10 @@ export class PaymentPageComponent implements OnInit {
 
   onPay(){
     this.submitted = true
-    if(this.paymentForm.invalid){
+    if(this.paymentForm?.invalid){
       return
     }else{
-      this.paymentSuccess = this.paymentService.executePayment(this.paymentForm.value)
+      this.paymentSuccess = this.paymentService.executePayment(this.paymentForm?.value)
       if(this.paymentSuccess)
         alert("Success ")
       else

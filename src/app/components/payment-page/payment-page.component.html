@@ -35,7 +35,7 @@
                                     <div *ngIf="paymentForm.controls.cardNumber.dirty && paymentForm.controls.cardNumber.errors.required">
                                         <p>Card Number is required.</p>
                                     </div>
-                                    <div *ngIf="paymentForm.controls.cardNumber.dirty && paymentForm.controls.cardNumber.errors.minlength">
+                                    <div *ngIf="paymentForm.controls.cardNumber.dirty && (paymentForm.controls.cardNumber.errors.minlength || paymentForm.controls.cardNumber.errors.maxlength)">
                                         <p>Card Number should contain 16 digits only.</p>
                                     </div>
                                     <div *ngIf="paymentForm.controls.cardNumber.dirty && paymentForm.controls.cardNumber.errors.pattern">

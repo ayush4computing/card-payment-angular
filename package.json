@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0 --port 9090 --disable-host-check",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "background-tests": "ng test --include **/card-registration/*.spec.ts --include **/payment-history-page/*.spec.ts --include **/payment-page/*.spec.ts",
+    "sample-tests": "ng test --include **/app/*.spec.ts",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
     "test": "ng test"
   },
   "private": true,

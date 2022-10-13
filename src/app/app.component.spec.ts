@@ -76,4 +76,26 @@ describe('AppComponent', () => {
     ];
     expect(paymentHistoryFixture.debugElement.queryAll(By.css('tr')).length).toEqual(1);
   });
+
+  it('Amount paid should be shown on payment history page', () => {
+    const paymentHistoryFixture = TestBed.createComponent(PaymentHistoryPageComponent);
+    const paymentPageInstance = paymentHistoryFixture.componentInstance;
+    paymentPageInstance.payments = [{
+      amount: 123456,
+      card: {
+        cardNumber: '123456',
+        cvv: 123,
+        expiry: '2022/12',
+        id: 1234567890123456,
+        name: 'Jane Doe',
+        pin: 123456
+      },
+      date: new Date(),
+      id: 1234567890123456
+    }
+    ];
+    paymentHistoryFixture.detectChanges();
+    const cardNumber = paymentHistoryFixture.nativeElement.querySelector('.amount');
+    expect((cardNumber.textContent as string).trim()).toBe('123456');
+  });
 });

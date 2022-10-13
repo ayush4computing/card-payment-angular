@@ -7,6 +7,7 @@
         <table class="table">
             <thead class="thead-dark">
               <tr>
+                <th >Payment ID</th>
                 <th >Name</th>
                 <th >Amount</th>
                 <th >Timestamp</th>
@@ -15,10 +16,13 @@
             </thead>
             <tbody>
               <tr *ngFor="let p of payments">
-                <td>{{p.card.name}}</td>
-                <td>{{p.amount}}</td>
-                <td>{{p.date | date:'medium'}}</td>
-                <td>{{p.card.cardNumber | hideCardNumber}}</td>
+                <td class="payment-id">{{p.id}}</td>
+                <td class="card-name">{{p.card.name}}</td>
+                <td class="amount">{{p.amount}}</td>
+                <!-- display date in 'MMM d, y, h:mm:ss a' format -->
+                <td class="transaction-date">{{p.date | date:'medium'}}</td>
+                <!-- display only last 4 digit of card number and hide rest of digits -->
+                <td class="card-number">{{p.card.cardNumber | hideCardNumber}}</td>
               </tr>
             </tbody>
           </table>

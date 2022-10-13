@@ -13,35 +13,53 @@ export class CardRegistrationComponent implements OnInit {
   registerForm!: FormGroup;
   submitted: boolean = false;
   cards!: Card[]
-  
+  cardDetails!: Card[]
+  cardDetailsMessage!: String
+
 
   constructor(@Inject(CardService) private cardService: CardService, private fb: FormBuilder) {
 
-   }
+  }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group(
       {
-        name:['', [Validators.required, Validators.minLength(4)]],
-        pin:['', [Validators.required,Validators.minLength(6), Validators.maxLength(6),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]]
+        name: ['', [Validators.required, Validators.minLength(4)]],
+        pin: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]]
       }
     )
 
     this.cards = this.cardService.getAllCards();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
-    if(this.registerForm.invalid){
+    if (this.registerForm?.invalid) {
       return
-    }else{
-      this.cardService.generateCard(this.registerForm.value.name,this.registerForm.value.pin)
+    } else {
+      this.cardService.generateCard(this.registerForm?.value.name, this.registerForm?.value.pin)
+      this.displayCardDetailsMessage();
     }
+  }
+
+  getCardDetails(){
+    this.cardDetails = this.cardService.getAllCards()
+}
+
+  displayCardDetailsMessage() {
+    this.getCardDetails();
+    this.cardDetailsMessage = "Card Number: " + this.cardDetails[0]?.cardNumber + "\nCVV: " + 
+    this.cardDetails[0]?.cvv + "\nExpiry: " + this.cardDetails[0]?.expiry + "\nID: " + 
+    this.cardDetails[0]?.id + "\nName: " + this.cardDetails[0]?.name + "\nPin: " + 
+    this.cardDetails[0]?.pin;
+    window.alert('Card Generated\nPlease save the following details\n' + this.cardDetailsMessage)
 
   }
 
 
 
-  
-  
+
+
+
+
 }
