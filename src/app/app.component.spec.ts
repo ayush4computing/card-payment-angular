@@ -87,7 +87,8 @@ describe('AppComponent', () => {
       id: 1234567890123456
     },
     ];
-    expect(paymentHistoryFixture.debugElement.queryAll(By.css('tr')).length).toEqual(2);
+    paymentHistoryFixture.detectChanges();
+    expect(paymentHistoryFixture.debugElement.queryAll(By.css('.payments-data')).length).toEqual(2);
   });
 
   it('Amount paid should be shown on payment history page', () => {
