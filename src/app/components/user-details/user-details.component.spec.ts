@@ -48,6 +48,7 @@ describe('AppComponent', () => {
     // Apply filters
     component.filterOptions.gender = 'female';
     component.applyFilters();
+    expect(component.filteredUsers.length).toBeGreaterThan(0)
     component.filteredUsers.forEach((user)=>{
       expect(user.gender).toEqual('female');
     })
@@ -63,6 +64,7 @@ describe('AppComponent', () => {
     // Apply filters
     component.filterOptions.gender = 'female';
     component.applyFilters();
+    expect(component.filteredUsers.length).toBeGreaterThan(0)
     component.filteredUsers.forEach((user)=>{
       expect(user.gender).not.toEqual('male');
     })
@@ -78,6 +80,7 @@ describe('AppComponent', () => {
     // Apply filters
     component.filterOptions.nationality = 'CA';
     component.applyFilters();
+    expect(component.filteredUsers.length).toBeGreaterThan(0)
     component.filteredUsers.forEach((user)=>{
       expect(user.nat).not.toEqual('US');
     })
@@ -93,6 +96,7 @@ describe('AppComponent', () => {
     // Apply filters
     component.filterOptions.nationality = 'US';
     component.applyFilters();
+    expect(component.filteredUsers.length).toBeGreaterThan(0)
     component.filteredUsers.forEach((user)=>{
       expect(user.nat).toEqual('US');
     })
@@ -109,6 +113,7 @@ describe('AppComponent', () => {
     component.filterOptions.nationality = 'US';
     component.filterOptions.gender = 'male'
     component.applyFilters();
+    expect(component.filteredUsers.length).toBeGreaterThan(0)
     component.filteredUsers.forEach((user)=>{
       expect(user.gender).toEqual('male');
       expect(user.nat).toEqual('US');
@@ -125,6 +130,7 @@ describe('AppComponent', () => {
     // Apply filters
     component.filterOptions.nameStartsWith = 'J';
     component.applyFilters();
+    expect(component.filteredUsers.length).toBeGreaterThan(0)
     component.filteredUsers.forEach((user)=>{
       expect(user.name.first.toLowerCase().startsWith('j') ||
       user.name.last.toLowerCase().startsWith('j')).toBeTrue();

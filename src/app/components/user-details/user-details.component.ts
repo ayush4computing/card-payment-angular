@@ -22,6 +22,10 @@ export class UserDetailsComponent implements OnInit {
     this.getRandomUsers();
   }
 
+  loadMoreUsers(){
+    this.getRandomUsers();
+  }
+
   getRandomUsers() {
     this.http.get<any>('https://randomuser.me/api/?results=50').subscribe(response => {
       this.users = response.results;
@@ -53,7 +57,7 @@ export class UserDetailsComponent implements OnInit {
     if (!this.filterOptions.gender) {
       return true;
     }
-
+    
     return user.gender.toLowerCase() === this.filterOptions.gender.toLowerCase();
   }
 
@@ -61,7 +65,6 @@ export class UserDetailsComponent implements OnInit {
     if (!this.filterOptions.nationality) {
       return true;
     }
-    // return true;
     return user.nat.toLowerCase() === this.filterOptions.nationality.toLowerCase();
   }
 
