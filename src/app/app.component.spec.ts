@@ -1,115 +1,79 @@
-import { PaymentHistoryPageComponent } from './components/payment-history-page/payment-history-page.component';
-import { PaymentPageComponent } from './components/payment-page/payment-page.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CardRegistrationComponent } from './components/card-registration/card-registration.component';
-import { TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { By, BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { HideCardNumberPipe } from './hide-card-number.pipe';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        ReactiveFormsModule,
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        CommonModule
-      ],
-      declarations: [
-        AppComponent,
-        CardRegistrationComponent,
-        PaymentPageComponent,
-        PaymentHistoryPageComponent,
-        HideCardNumberPipe
-      ],
+  let component: UserDetailsComponent;
+  let fixture: ComponentFixture<UserDetailsComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, UserDetailsComponent],
+      imports: [HttpClientTestingModule, FormsModule]
     }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UserDetailsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('Register button disabled until form valid', () => {
-    const cardRegistrationFixture = TestBed.createComponent(CardRegistrationComponent);
-    const cardRegistrationInstance = cardRegistrationFixture.componentInstance
-    cardRegistrationFixture.detectChanges();
-    expect(cardRegistrationFixture.debugElement.query(By.css('.btn')).nativeElement.disabled).toBeTruthy();
-    cardRegistrationInstance.registerForm.controls['name'].setValue('Jane Doe');
-    cardRegistrationInstance.registerForm.controls['pin'].setValue('123456');
-    cardRegistrationFixture.detectChanges();
-    expect(cardRegistrationFixture.debugElement.query(By.css('.btn')).nativeElement.disabled).toBeFalsy();
+
+  it('should fetch random users on initialization', () => {
+    spyOn(component, 'getRandomUsers');
+    component.ngOnInit();
+    expect(component.getRandomUsers).toHaveBeenCalled();
   });
 
-  it('Pay button disabled untill form valid', () => {
-    const paymentPageFixture = TestBed.createComponent(PaymentPageComponent);
-    const paymentPageInstance = paymentPageFixture.componentInstance
-    paymentPageFixture.detectChanges();
-    expect(paymentPageFixture.debugElement.query(By.css('.btn')).nativeElement.disabled).toBeTruthy();
-    paymentPageInstance.paymentForm.controls['name'].setValue('Jane Doe');
-    paymentPageInstance.paymentForm.controls['cardNumber'].setValue('123456');
-    paymentPageInstance.paymentForm.controls['cvv'].setValue('123');
-    paymentPageInstance.paymentForm.controls['pin'].setValue('123456');
-    paymentPageInstance.paymentForm.controls['month'].setValue('12');
-    paymentPageInstance.paymentForm.controls['year'].setValue('2022');
-    paymentPageInstance.paymentForm.controls['amount'].setValue('123456');
-    paymentPageFixture.detectChanges();
-    expect(paymentPageFixture.debugElement.query(By.css('.btn')).nativeElement.disabled).toBeFalsy();
-  });
-
-  it('Display payments on History page', () => {
-    const paymentHistoryFixture = TestBed.createComponent(PaymentHistoryPageComponent);
-    const paymentPageInstance = paymentHistoryFixture.componentInstance;
-    paymentPageInstance.payments = [{
-      amount: 123456,
-      card: {
-        cardNumber: '123456',
-        cvv: 123,
-        expiry: '2022/12',
-        id: 1234567890123456,
-        name: 'Jane Doe',
-        pin: 123456
-      },
-      date: new Date(),
-      id: 1234567890123456
-    },
-    {
-      amount: 123456,
-      card: {
-        cardNumber: '123456',
-        cvv: 123,
-        expiry: '2022/12',
-        id: 1234567890123456,
-        name: 'Jane Doe',
-        pin: 123456
-      },
-      date: new Date(),
-      id: 1234567890123456
-    },
+  it('should apply filters correctly when all filters are empty', () => {
+    const mockUsers = [
+      { name: { first: 'John', last: 'Doe' }, dob: { age: 25 }, gender: 'male', nat: 'US', email: 'john@example.com', phone: '1234567890' },
+      { name: { first: 'Jane', last: 'Smith' }, dob: { age: 30 }, gender: 'female', nat: 'CA', email: 'jane@example.com', phone: '9876543210' }
     ];
-    paymentHistoryFixture.detectChanges();
-    expect(paymentHistoryFixture.debugElement.queryAll(By.css('.payments-data')).length).toEqual(2);
+    component.users = mockUsers;
+
+    // Apply filters
+    component.applyFilters();
+
+    expect(component.filteredUsers).toEqual(mockUsers);
   });
 
-  it('Amount paid should be shown on payment history page', () => {
-    const paymentHistoryFixture = TestBed.createComponent(PaymentHistoryPageComponent);
-    const paymentPageInstance = paymentHistoryFixture.componentInstance;
-    paymentPageInstance.payments = [{
-      amount: 123456,
-      card: {
-        cardNumber: '123456',
-        cvv: 123,
-        expiry: '2022/12',
-        id: 1234567890123456,
-        name: 'Jane Doe',
-        pin: 123456
-      },
-      date: new Date(),
-      id: 1234567890123456
-    }
+  it('should apply filters correctly based on age', () => {
+    const mockUsers = [
+      { name: { first: 'John', last: 'Doe' }, dob: { age: 25 }, gender: 'male', nat: 'US', email: 'john@example.com', phone: '1234567890' },
+      { name: { first: 'Jane', last: 'Smith' }, dob: { age: 30 }, gender: 'female', nat: 'CA', email: 'jane@example.com', phone: '9876543210' }
     ];
-    paymentHistoryFixture.detectChanges();
-    const cardNumber = paymentHistoryFixture.nativeElement.querySelector('.amount');
-    expect((cardNumber.textContent as string).trim()).toBe('123456');
+    component.users = mockUsers;
+
+    // Apply filters
+    component.filterOptions.age = '25';
+    component.applyFilters();
+
+    expect(component.filteredUsers.length).toBe(1);
+    expect(component.filteredUsers[0]).toEqual(mockUsers[1]);
   });
+
+  it('should display "No result found" when no users match the filters', () => {
+    const mockUsers = [
+      { name: { first: 'John', last: 'Doe' }, dob: { age: 25 }, gender: 'male', nat: 'US', email: 'john@example.com', phone: '1234567890' },
+      { name: { first: 'Jane', last: 'Smith' }, dob: { age: 30 }, gender: 'female', nat: 'CA', email: 'jane@example.com', phone: '9876543210' }
+    ];
+    component.users = mockUsers;
+
+    // Apply filters that don't match any users
+    component.filterOptions.age = '40';
+    component.filterOptions.gender = 'male';
+    component.filterOptions.nationality = 'AU';
+    component.filterOptions.nameStartsWith = 'Z';
+    component.applyFilters();
+
+    const noResultsElement = fixture.nativeElement.querySelector('.no-results');
+    expect(noResultsElement).toBeTruthy();
+    expect(noResultsElement.textContent).toContain('No result found.');
+  });
+
+
 });

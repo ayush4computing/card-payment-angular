@@ -4,26 +4,22 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CardRegistrationComponent } from './components/card-registration/card-registration.component';
-import { PaymentPageComponent } from './components/payment-page/payment-page.component';
-import { PaymentHistoryPageComponent } from './components/payment-history-page/payment-history-page.component';
-import { HideCardNumberPipe } from './hide-card-number.pipe';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardRegistrationComponent,
-    PaymentPageComponent,
-    PaymentHistoryPageComponent,
-    HideCardNumberPipe
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
