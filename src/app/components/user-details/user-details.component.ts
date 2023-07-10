@@ -16,27 +16,28 @@ export class UserDetailsComponent implements OnInit {
     nameStartsWith: ''
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getRandomUsers();
+    // Add your code here
+
+  }
+
+  loadMoreUsers() {
+    // Add your code here
   }
 
   getRandomUsers() {
     this.http.get<any>('https://randomuser.me/api/?results=50').subscribe(response => {
-      this.users = response.results;
+      // Add your code here
+
       this.filteredUsers = this.users;
     });
   }
 
   applyFilters() {
     this.filteredUsers = this.users.filter(user => {
-      return (
-        this.filterByAge(user) &&
-        this.filterByGender(user) &&
-        this.filterByNationality(user) &&
-        this.filterByName(user)
-      );
+      // Add your code here
     });
   }
 
@@ -45,24 +46,28 @@ export class UserDetailsComponent implements OnInit {
       return true;
     }
 
-    const age = parseInt(this.filterOptions.age, 10);
-    return user.dob.age > age;
+    // Remove following return statement and add your code here
+    return true
+
   }
 
   filterByGender(user: any): boolean {
     if (!this.filterOptions.gender) {
       return true;
     }
-
-    return user.gender.toLowerCase() === this.filterOptions.gender.toLowerCase();
+    // Remove following return statement and add your code here
+    return true
   }
 
   filterByNationality(user: any): boolean {
     if (!this.filterOptions.nationality) {
       return true;
     }
-    // return true;
-    return user.nat.toLowerCase() === this.filterOptions.nationality.toLowerCase();
+
+    // Remove following return statement and add your code here
+
+    return true
+
   }
 
   filterByName(user: any): boolean {
@@ -70,10 +75,8 @@ export class UserDetailsComponent implements OnInit {
       return true;
     }
 
-    const nameStartsWith = this.filterOptions.nameStartsWith.toLowerCase();
-    return (
-      user.name.first.toLowerCase().startsWith(nameStartsWith) ||
-      user.name.last.toLowerCase().startsWith(nameStartsWith)
-    );
+    // Remove following return statement and add your code here
+    
+    return true;
   }
 }
