@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 9090 --disable-host-check",
     "build": "ng build",
-    "background-tests": "ng test --include **/user-details/*.spec.ts",
+    "background-tests": "ng test --include **/products/*.spec.ts",
     "sample-tests": "ng test --include **/app/*.spec.ts",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -26,7 +26,7 @@
     "chart.js": "^2.9.4",
     "karma-junit-reporter": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
-    "rxjs": "~7.5.0",
+    "rxjs": "^7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.1"
   },

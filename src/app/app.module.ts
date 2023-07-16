@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { AppComponent } from './app.component';
+import { ProductsComponent } from './products/products.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserDetailsComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
