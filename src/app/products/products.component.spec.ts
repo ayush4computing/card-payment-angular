@@ -35,24 +35,6 @@ describe('ProductsComponent', () => {
     spyOn(productService, 'deleteProduct').and.returnValue(of());
   });
 
-  it('should load products on component initialization', () => {
-    fixture.detectChanges();
-    expect(component.products.length).toBe(2);
-    expect(component.products[0].name).toBe('Product 1');
-    expect(component.products[1].name).toBe('Product 2');
-  });
-
-  it('should select a product for update', () => {
-    const productToUpdate = { id: 1, name: 'Product 1', price: 10, description: 'Description 1' };
-  
-    component.selectProductForUpdate(productToUpdate);
-  
-    expect(component.selectedProductId).toBe(productToUpdate.id);
-    expect(component.updatedProductName).toBe(productToUpdate.name);
-    expect(component.updatedProductPrice).toBe(productToUpdate.price);
-    expect(component.updatedProductDescription).toBe(productToUpdate.description);
-  });
-  
   it('should reset the update fields', () => {
     component.updatedProductName = 'Updated Product';
     component.updatedProductPrice = 30;
@@ -65,42 +47,6 @@ describe('ProductsComponent', () => {
     expect(component.updatedProductDescription).toBe('');
   });
   
-
-
-  it('should not add a new product with invalid name or price', () => {
-    fixture.detectChanges();
-    component.newProductName = '';
-    component.newProductPrice = 0;
-    spyOn(productService, 'addProduct').and.returnValue(of());
-    component.addProduct();
-
-    expect(productService.addProduct).not.toHaveBeenCalled();
-    expect(component.products.length).toBe(2);
-    expect(component.errorMessage).toBe('Please enter a valid product name and price.');
-  });
-
- 
-
-
-
-  it('should update an existing product', () => {
-    fixture.detectChanges();
-    component.selectProductForUpdate(component.products[0]);
-    component.updatedProductName = 'Updated Product';
-    component.updatedProductPrice = 150;
-    component.updatedProductDescription = 'Updated Description';
-
-    component.updateProduct(component.products[0]);
-
-    expect(productService.updateProduct).toHaveBeenCalledWith({
-      id: 1,
-      name: 'Updated Product',
-      price: 150,
-      description: 'Updated Description'
-    });
-    expect(component.products[0].name).toBe('Updated Product');
-    expect(component.products[0].price).toBe(150);
-  });
 
   it('should not update an existing product with invalid name, price, or description', () => {
     fixture.detectChanges();
@@ -237,5 +183,3 @@ describe('ProductsComponent', () => {
   });
   
 });
-
-

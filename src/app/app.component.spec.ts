@@ -3,10 +3,14 @@ import { AppComponent } from './app.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
+import { of } from 'rxjs';
+import { Product } from './products/product.model';
+import { ProductService } from './products/product.service';
 
 describe('AppComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
+  let productService: ProductService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,62 +22,65 @@ describe('AppComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    productService = TestBed.inject(ProductService);
+
+    // Sample product data
+    const products: Product[] = [
+      { id: 1, name: 'Product 1', price: 100, description: 'Description 1' },
+      { id: 2, name: 'Product 2', price: 200, description: 'Description 2' }
+    ];
+    spyOn(productService, 'getProducts').and.returnValue(of(products));
+    // spyOn(productService, 'addProduct').and.returnValue(of());
+    spyOn(productService, 'updateProduct').and.returnValue(of());
+    spyOn(productService, 'deleteProduct').and.returnValue(of());
   });
 
+  it('should load products on component initialization', () => {
+    fixture.detectChanges();
+    expect(component.products.length).toBe(2);
+    expect(component.products[0].name).toBe('Product 1');
+    expect(component.products[1].name).toBe('Product 2');
+  });
 
-//   it('should fetch random users on initialization', () => {
-//     spyOn(component, 'getRandomUsers');
-//     component.ngOnInit();
-//     expect(component.getRandomUsers).toHaveBeenCalled();
-//   });
+  it('should select a product for update', () => {
+    const productToUpdate = { id: 1, name: 'Product 1', price: 10, description: 'Description 1' };
+  
+    component.selectProductForUpdate(productToUpdate);
+  
+    expect(component.selectedProductId).toBe(productToUpdate.id);
+    expect(component.updatedProductName).toBe(productToUpdate.name);
+    expect(component.updatedProductPrice).toBe(productToUpdate.price);
+    expect(component.updatedProductDescription).toBe(productToUpdate.description);
+  });
+  
+  it('should not add a new product with invalid name or price', () => {
+    fixture.detectChanges();
+    component.newProductName = '';
+    component.newProductPrice = 0;
+    spyOn(productService, 'addProduct').and.returnValue(of());
+    component.addProduct();
 
-//   it('should apply filters correctly when all filters are empty', () => {
-//     const mockUsers = [
-//       { name: { first: 'John', last: 'Doe' }, dob: { age: 25 }, gender: 'male', nat: 'US', email: 'john@example.com', phone: '1234567890' },
-//       { name: { first: 'Jane', last: 'Smith' }, dob: { age: 30 }, gender: 'female', nat: 'CA', email: 'jane@example.com', phone: '9876543210' }
-//     ];
-//     component.users = mockUsers;
+    expect(productService.addProduct).not.toHaveBeenCalled();
+    expect(component.products.length).toBe(2);
+    expect(component.errorMessage).toBe('Please enter a valid product name and price.');
+  });
 
-//     // Apply filters
-//     component.applyFilters();
+  it('should update an existing product', () => {
+    fixture.detectChanges();
+    component.selectProductForUpdate(component.products[0]);
+    component.updatedProductName = 'Updated Product';
+    component.updatedProductPrice = 150;
+    component.updatedProductDescription = 'Updated Description';
 
-//     expect(component.filteredUsers).toEqual(mockUsers);
-//   });
+    component.updateProduct(component.products[0]);
 
-//   it('should apply filters correctly based on age', () => {
-//     const mockUsers = [
-//       { name: { first: 'John', last: 'Doe' }, dob: { age: 25 }, gender: 'male', nat: 'US', email: 'john@example.com', phone: '1234567890' },
-//       { name: { first: 'Jane', last: 'Smith' }, dob: { age: 30 }, gender: 'female', nat: 'CA', email: 'jane@example.com', phone: '9876543210' }
-//     ];
-//     component.users = mockUsers;
-
-//     // Apply filters
-//     component.filterOptions.age = '25';
-//     component.applyFilters();
-
-//     expect(component.filteredUsers.length).toBe(1);
-//     expect(component.filteredUsers[0]).toEqual(mockUsers[1]);
-//   });
-
-//   it('should display "No result found" when no users match the filters', () => {
-//     const mockUsers = [
-//       { name: { first: 'John', last: 'Doe' }, dob: { age: 25 }, gender: 'male', nat: 'US', email: 'john@example.com', phone: '1234567890' },
-//       { name: { first: 'Jane', last: 'Smith' }, dob: { age: 30 }, gender: 'female', nat: 'CA', email: 'jane@example.com', phone: '9876543210' }
-//     ];
-//     component.users = mockUsers;
-
-//     // Apply filters that don't match any users
-//     component.filterOptions.age = '40';
-//     component.filterOptions.gender = 'male';
-//     component.filterOptions.nationality = 'AU';
-//     component.filterOptions.nameStartsWith = 'Z';
-//     component.applyFilters();
-
-//     const noResultsElement = fixture.nativeElement.querySelector('.no-results');
-//     expect(noResultsElement).toBeTruthy();
-//     expect(noResultsElement.textContent).toContain('No result found.');
-//   });
-
-
+    expect(productService.updateProduct).toHaveBeenCalledWith({
+      id: 1,
+      name: 'Updated Product',
+      price: 150,
+      description: 'Updated Description'
+    });
+    expect(component.products[0].name).toBe('Updated Product');
+    expect(component.products[0].price).toBe(150);
+  });
 });
