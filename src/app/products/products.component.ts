@@ -28,8 +28,9 @@ export class ProductsComponent implements OnInit {
 
   constructor(public productService: ProductService) { }
 
+  // Existing products should load at the time of starting the application
   ngOnInit() {
-    // this.loadProducts();
+    
   }
 
   loadProducts() {
@@ -59,7 +60,8 @@ export class ProductsComponent implements OnInit {
     this.productService.addProduct(newProduct).subscribe(
       () => {
         this.products.push(newProduct);
-        // this.resetForm();
+        // After the product is added, the form fields should be cleared, write a code for this.
+    
       },
       error => console.log(error)
     );
@@ -75,10 +77,9 @@ export class ProductsComponent implements OnInit {
     }
   }
   updateProduct(product: Product) {
-    // Validate Product Name and Price
+    // Validate Product Name and Price and show an error like this - 'Please enter valid product name, price, and description.'
     if (!this.updatedProductName || this.updatedProductPrice <= 0 || !this.updatedProductDescription) {
-      // this.errorMessage = 'Please enter valid product name, price, and description.';
-      // return;
+      
     }
     // Update the product fields with the updated values
     if (this.updatedProductName) {
@@ -91,11 +92,11 @@ export class ProductsComponent implements OnInit {
       product.description = this.updatedProductDescription;
     }
 
+    // if products are updated successfully the update form should be cleared, write a code for this
     this.productService.updateProduct(product).subscribe(
       () => {
         console.log('Product updated successfully.');
         this.selectedProductId = null;
-        // this.resetUpdatedFields();
       },
       error => console.log(error)
     );
@@ -103,40 +104,24 @@ export class ProductsComponent implements OnInit {
 
   deleteProduct(id: number) {
     // write a code to delete the product
-    // this.productService.deleteProduct(id).subscribe(
-    //   () => {
-    //     // this.products = this.products.filter(product => product.id !== id);
-    //     // if (this.selectedProductId === id) {
-    //     //   this.selectedProductId = null;
-    //     // }
-    //   },
-    //   // error => console.log(error)
-    // );
+
   }
 
   resetForm() {
-    // this.newProductName = '';
-    // this.newProductPrice = 0;
-    // this.newProductDescription = '';
-    // this.errorMessage = '';
+    // Write a code to reset the form
   }
 
   selectProductForUpdate(product: Product) {
-    // this.selectedProductId = product.id;
-    // this.updatedProductName = product.name;
-    // this.updatedProductPrice = product.price;
-    // this.updatedProductDescription = product.description;
+    // Write a code to select product for update
   }
 
   cancelUpdate() {
-    // this.selectedProductId = null;
-    // this.errorMessage = '';
-    // this.resetUpdatedFields();
+    // Write a code to cancel the update, clear the error message and form
+
   }
 
   resetUpdatedFields() {
-    // this.updatedProductName = '';
-    // this.updatedProductPrice = 0;
-    // this.updatedProductDescription = '';
+    // Write a code to reset the updated fields
+
   }
 }
