@@ -30,7 +30,6 @@ describe('ProductsComponent', () => {
       { id: 2, name: 'Product 2', price: 200, description: 'Description 2' }
     ];
     spyOn(productService, 'getProducts').and.returnValue(of(products));
-    // spyOn(productService, 'addProduct').and.returnValue(of());
     spyOn(productService, 'updateProduct').and.returnValue(of());
     spyOn(productService, 'deleteProduct').and.returnValue(of());
   });
@@ -63,8 +62,16 @@ describe('ProductsComponent', () => {
 
   it('should cancel the update and reset the selectedProductId', () => {
     fixture.detectChanges();
-    component.selectProductForUpdate(component.products[0]);
-
+    const product  = {
+      id: 1,
+      name: 'Sample Product 1',
+      price: 1000,
+      description: 'Sample Description'
+    };
+    component.updatedProductName = 'ABC';
+    component.updatedProductPrice = 1234;
+    component.updatedProductDescription = 'Sample Description';
+    component.updateProduct(product);
     component.cancelUpdate();
 
     expect(component.selectedProductId).toBeNull();
@@ -156,6 +163,7 @@ describe('ProductsComponent', () => {
     component.updatedProductPrice = 0;
     component.updatedProductDescription = '';
   
+    component.addProduct();
     // Act
     component.cancelUpdate();
   
@@ -179,7 +187,6 @@ describe('ProductsComponent', () => {
     expect(productCardElements[0].textContent).toContain('Product 1');
     expect(productCardElements[0].textContent).toContain('$ 10');
     expect(productCardElements[0].textContent).toContain('Description 1');
-    // Similarly, you can check for the details of the second product card.
   });
   
 });
