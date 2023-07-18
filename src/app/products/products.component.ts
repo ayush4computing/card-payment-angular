@@ -16,7 +16,12 @@ export class ProductsComponent implements OnInit {
   lastAssignedId: number = 0;
   errorMessage: string = '';
   selectedProductId: number | null = null;
-
+  product: Product = {
+    id: 1,
+    name: 'Sample Product 1',
+    price: 1000,
+    description: 'Sample Description'
+  };
   updatedProductName: string = '';
   updatedProductPrice: number = 0;
   updatedProductDescription: string = '';
@@ -124,6 +129,7 @@ export class ProductsComponent implements OnInit {
 
   cancelUpdate() {
     this.selectedProductId = null;
+    this.errorMessage = '';
     this.resetUpdatedFields();
   }
 

@@ -1,9 +1,9 @@
 <div class="products-container">
   <div class="product-list">
     <div class="product-card" *ngFor="let product of products">
-      <h3 class="product-name">{{ product.name }}</h3>
-      <p class="product-price">$ {{ product.price }}</p>
-      <p class="product-description">{{ product.description }}</p>
+      <h3 class="product-name">{{ product?.name }}</h3>
+      <p class="product-price">$ {{ product?.price }}</p>
+      <p class="product-description">{{ product?.description }}</p>
       <button (click)="deleteProduct(product.id)" class="btn-delete">Delete</button>
       <button *ngIf="selectedProductId !== product.id" (click)="selectProductForUpdate(product)"
         class="btn-update">Update</button>
