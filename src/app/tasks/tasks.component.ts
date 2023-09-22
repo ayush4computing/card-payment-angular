@@ -22,11 +22,9 @@ export class TasksComponent implements OnInit {
 
   sortTasks(): void {
     this.sortFilteredTasks();
-    console.log(this.filteredTasks, this.sortOrder);
   }
 
   filterTasksByStatus(): void {
-    console.log(this.tasks);
     if (this.filterStatus === 'all') {
       // Show all tasks
       this.filteredTasks = this.tasks;
