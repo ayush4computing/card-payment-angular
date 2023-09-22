@@ -1,28 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // Add this line
+import { HttpClientModule } from '@angular/common/http'; // Add this line
+
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { TaskDetailsComponent } from './task-details/task-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    TasksComponent,
+    TaskDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 })
-
+    FormsModule, // Add this line
+    HttpClientModule, // Add this line
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

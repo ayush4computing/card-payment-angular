@@ -1,0 +1,36 @@
+/* tasks.component.css */
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .btn-primary {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* badges */
+  .badge {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .badge-success {
+    background-color: #28a745;
+  }
+  
+  .badge-warning {
+    background-color: #ffc107;
+  }
+  
