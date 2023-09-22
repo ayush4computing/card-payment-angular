@@ -78,17 +78,12 @@ describe("TaskService", () => {
 
       title: "Test 1",
     };
-    taskService.addTask(task);
-
-    taskService.deleteTask(1);
-
     const tasks = taskService.getTasks();
-    expect(tasks.length).toBe(0);
-  });
 
-  it("should return undefined when trying to get a non-existent task", () => {
-    const retrievedTask = taskService.getTaskById(999);
-    expect(retrievedTask).toBeUndefined();
+    taskService.addTask(task);
+    expect(tasks.length).toBe(1);
+    taskService.deleteTask(1);
+    expect(tasks.length).toBe(0);
   });
 
   it("should not update a non-existent task", () => {

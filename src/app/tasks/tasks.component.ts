@@ -10,12 +10,14 @@ import { TaskService } from '../task.service';
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   filteredTasks: Task[] = [];
-  sortOrder: string = 'title'; // Default sorting by title
-  filterStatus: string = 'all'; // Default filter: All
+  sortOrder: string = ''; // Default sorting by title
+  filterStatus: string = ''; // Default filter: All
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
+    this.sortOrder = 'title';
+    this.filterStatus = 'all';
     this.tasks = this.taskService.getTasks();
     this.filteredTasks = this.tasks; // Initialize filteredTasks with all tasks
   }
