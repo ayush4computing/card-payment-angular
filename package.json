@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 9090 --disable-host-check",
     "build": "ng build",
-    "background-tests": "ng test --include **/products/*.spec.ts",
-    "sample-tests": "ng test --include **/app/*.spec.ts",
+    "background-tests": "ng test --include **/tasks/*.spec.ts --include **/task-details/*.spec.ts --include **/app/task.service.spec.ts",
+    "sample-tests": "ng test --include **/app/app.component.spec.ts",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test"
