@@ -1,6 +1,7 @@
 <div class="container mt-4">
-    <h2>User List</h2>
-    <table class="table table-bordered">
+<!-- user list should be present -->
+
+  <table class="table table-bordered">
       <thead>
         <tr>
           <th>ID</th>
@@ -12,13 +13,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of users">
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.phone }}</td>
+          
+
+<!-- user details should be displayed -->
+
+
           <td>
             <a [routerLink]="['/user', user.id]" class="btn btn-primary btn-sm">View</a>
-            <button (click)="deleteUser(user.id)" class="btn btn-danger btn-sm">Delete</button>
+<!-- delete user button -->
+
           </td>
         </tr>
       </tbody>

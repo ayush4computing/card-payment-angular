@@ -19,7 +19,7 @@ export class UserDetailsComponent {
 
     if (!this.user) {
       // Handle user not found, e.g., redirect to the user list
-      this.router.navigate(['/users']);
+    
     }
   }
 }

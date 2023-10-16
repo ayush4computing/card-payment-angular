@@ -15,9 +15,8 @@ export class UserListComponent {
   deleteUser(userId: number) {
     // Remove the user from the list (you can use a service for this)
     // For now, remove it from the local list
-    const index = users.findIndex((user) => user.id === userId);
-    if (index !== -1) {
-      users.splice(index, 1);
-    }
+    
+
+    
   }
 }
