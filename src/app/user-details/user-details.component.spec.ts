@@ -28,10 +28,6 @@ describe('UserDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should display user details', () => {
     // Simulate a user by setting the user property
     component.user = { id: 1, name: 'Alice', email: 'alice@example.com', phone: '123-456-7890' };

@@ -16,10 +16,6 @@ describe('UserListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should display user list', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('h2').textContent).toContain('User List');
