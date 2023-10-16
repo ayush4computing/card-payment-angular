@@ -24,7 +24,7 @@ describe('AppComponent', () => {
 
   it('should navigate to User Create', async () => {
     const compiled = fixture.nativeElement;
-    const link = compiled.querySelector('.nav-link-create'); // Replace with the appropriate selector
+    const link = compiled.querySelector('.nav-link'); // Replace with the appropriate selector
     link.click();
     fixture.detectChanges();
 
