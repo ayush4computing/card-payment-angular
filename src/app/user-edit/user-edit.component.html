@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h2>Edit User</h2>
+    <form (ngSubmit)="saveUser()" class="form" #userForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input [(ngModel)]="user.name" name="name" id="name" class="form-control" required>
+        <div *ngIf="userForm.controls.name?.invalid && userForm.controls.name.dirty" class="alert alert-danger">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input [(ngModel)]="user.email" name="email" id="email" type="email" class="form-control" required>
+        <div *ngIf="userForm.controls.email?.invalid && userForm.controls.email.dirty" class="alert alert-danger">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone(Optional):</label>
+        <input [(ngModel)]="user.phone" name="phone" id="phone" class="form-control" type="number">
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Save</button>
+    </form>
+  </div>
+  
