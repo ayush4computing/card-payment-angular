@@ -106,5 +106,7 @@
       }
     }
   },
-  "defaultProject": "card-payment-system"
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h2>User List</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>
+            <a [routerLink]="['/user', user.id]" class="btn btn-primary btn-sm">View</a>
+            <button (click)="deleteUser(user.id)" class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a routerLink="/user/create" class="btn btn-success">Create User</a>
+</div>
+  
